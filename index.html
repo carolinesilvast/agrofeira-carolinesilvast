@@ -3,38 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroFeira — Produtores de Paragominas</title>
+    <title>AgroFeira — Início</title>
 </head>
 <body>
 
-    <header>
-        <h1>AgroFeira de Paragominas</h1>
-        <nav>
-            <ul>
-                <li><a href="#sobre">Sobre a feira</a></li>
-                <li><a href="#produtos">Produtos</a></li>
+    <a href="#conteudo" class="pular">Pular para o conteúdo</a>
+
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="index.html" aria-current="page">Início</a></li>
+                <li><a href="safra.html">Safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="conteudo">
+
         <section>
-            <h2 id="sobre">Sobre a feira</h2>
-            <p>A AgroFeira reúne produtores da região de Paragominas para vender direto ao consumidor. Toda semana, pequenos agricultores e criadores trazem o que colhem e produzem, sem atravessador e com preço justo. É um espaço para comprar comida fresca, conhecer quem planta e fortalecer a economia local.</p>
+            <h2 id="apresentacao">A feira da nossa região</h2>
+            <p>A AgroFeira reúne produtores de Paragominas para vender direto ao consumidor. É um espaço <em>feito por quem planta</em>, para quem quer comida fresca e preço justo. Use os links para ir direto à <a href="#apresentacao">apresentação</a> ou à <a href="#produtos">lista de produtos</a>.</p>
+
+            <figure class="figura-destaque">
+                <img src="feira-330.jpg"
+                     srcset="feira-330.jpg 330w, feira-1280.jpg 1280w"
+                     sizes="(max-width: 600px) 330px, 1280px"
+                     width="330" height="247"
+                     alt="Barracas da feira com frutas, verduras e legumes organizados em caixas de madeira.">
+                <figcaption>Barracas da feira de produtores. Foto: Rayelle da Silva Freitas, CC BY-SA 4.0, via Wikimedia Commons.</figcaption>
+            </figure>
+
+            <form class="busca" role="search">
+                <label for="busca-produto">Procurar produto</label>
+                <input type="search" id="busca-produto" name="busca">
+                <button type="submit">
+                    <img src="lupa.png" width="40" height="40" alt="Procurar">
+                </button>
+            </form>
         </section>
 
         <section>
-            <h2 id="produtos">Produtos</h2>
-            <ul>
-                <li>Farinha de mandioca — vendida por quilo</li>
-                <li>Queijo coalho artesanal — vendido por peça</li>
-                <li>Mel de abelha nativa — vendido por litro</li>
+            <h2 id="produtos">Produtos da feira</h2>
+            <ul class="lista-produtos">
+                <li class="cartao-produto">Mandioca, na saca de 60 kg</li>
+                <li class="cartao-produto">Banana-prata, no cacho</li>
+                <li class="cartao-produto">Açaí, na rasa</li>
+                <li class="cartao-produto">Pimenta-do-reino, no quilo</li>
+                <li class="cartao-produto">Cupuaçu, no quilo</li>
+                <li class="cartao-produto">Alface, no maço</li>
             </ul>
+
+            <aside class="aviso">
+                <p><strong>Os preços mudam toda semana</strong>, conforme a colheita e a procura.</p>
+            </aside>
         </section>
+
+        <aside>
+            <h2>Onde e quando</h2>
+            <p>Praça central de Paragominas, aos sábados, das 6h às 12h.</p>
+        </aside>
+
     </main>
 
-    <footer>
-        <p>AgroFeira de Paragominas — feira de produtores da região. Contato pelo e-mail da associação.</p>
+    <footer class="rodape-site">
+        <p>AgroFeira — feira de produtores da região de Paragominas.</p>
     </footer>
 
 </body>
