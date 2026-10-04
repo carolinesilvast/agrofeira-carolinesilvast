@@ -1,0 +1,26 @@
+/* Caso 1 — previsão: vence .aviso strong (0,1,1) sobre strong (0,0,1); a parte importante do aviso fica na cor da marca. */
+.aviso strong {
+  color: var(--cor-marca);
+}
+strong {
+  color: var(--cor-texto-suave);
+}
+/* Conferido: o painel mostra .aviso strong aplicada e strong riscada. */
+
+/* Caso 2 — previsão: .busca label (0,1,1) e label[for] (0,1,1) empatam; a ordem decide, então vence label[for]; o rótulo fica na cor do texto suave. */
+.busca label {
+  color: var(--cor-marca);
+}
+label[for] {
+  color: var(--cor-texto-suave);
+}
+/* Conferido: o painel mostra label[for] aplicada e .busca label riscada. */
+
+/* Caso 3 — previsão: footer p (0,0,2) ataca o parágrafo diretamente e vence a herança de .rodape-site (0,1,0); o parágrafo do rodapé fica na cor do texto. */
+.rodape-site {
+  color: var(--cor-marca);
+}
+footer p {
+  color: var(--cor-texto);
+}
+/* Conferido: o painel mostra footer p aplicada e a cor herdada de .rodape-site riscada em Inherited from. */

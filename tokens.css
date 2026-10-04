@@ -1,0 +1,27 @@
+:root {
+  --cor-texto: #1A1A1A;              /* texto sobre fundo: 13.6:1 — AA e AAA */
+  --cor-texto-suave: #4A4A4A;        /* texto suave sobre fundo: 7.6:1 — AA e AAA */
+                                     /* texto suave sobre superfície: 7.6:1 — AA e AAA */
+  --cor-fundo: #F2F7F4;
+  --cor-superficie: #FFFFFF;
+  --cor-sobre-marca: #FFFFFF;        /* sobre a marca em cima da marca: 9.2:1 — AA e AAA */
+  --cor-marca: #8B1E3F;
+  --cor-borda: #C9D6CF;
+
+  --fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fonte-titulo: "Google Sans", sans-serif;
+  --tamanho-texto: 1rem;
+
+  /* Escala modular: multiplicador 1.25 */
+  --tamanho-h3: 1.25rem;
+  --tamanho-h2: 1.563rem;
+  --tamanho-h1: 1.953rem;
+
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2.5rem;
+
+  --raio: 8px;
+  --sombra: 0 2px 6px rgb(0 0 0 / 0.12);
+}
