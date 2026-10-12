@@ -1,0 +1,221 @@
+@layer componentes {
+
+/* ---- Cabeçalho e rodapé ---- */
+.cabecalho-site {
+  background-color: var(--cor-marca);
+  color: var(--cor-sobre-marca);
+  padding: var(--espaco-3) var(--espaco-2);
+}
+
+.rodape-site {
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  padding: var(--espaco-3) var(--espaco-2);
+}
+
+/* ---- Menu ---- */
+.menu {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  background-color: var(--cor-marca);
+  padding: var(--espaco-2);
+}
+
+.menu a {
+  color: var(--cor-sobre-marca);
+  text-decoration: none;
+}
+
+.menu a[aria-current="page"] {
+  font-weight: bold;
+}
+
+/* ---- Botões do site (lupa, cadastro, categorias e cartões) ---- */
+.busca button,
+.formulario-cadastro button,
+.barra-categorias button,
+.cartao-produto button {
+  background-color: var(--cor-marca);
+  color: var(--cor-sobre-marca);
+  border: none;
+  border-radius: var(--raio);
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.busca button:hover,
+.formulario-cadastro button:hover,
+.barra-categorias button:hover,
+.cartao-produto button:hover {
+  background-color: var(--cor-marca-forte);
+  color: var(--cor-sobre-marca);
+}
+
+/* ---- Home: lista de produtos (grade que se ajusta) ---- */
+main .lista-produtos {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--espaco-2);
+}
+
+.lateral .lista-produtos {
+  list-style: none;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-2);
+}
+
+/* ---- Cartão ---- */
+.cartao-produto {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: var(--espaco-2);
+  container-type: inline-size;
+}
+
+.cartao-produto.destaque {
+  grid-column: 1 / -1;
+}
+
+.cartao-produto img {
+  border-radius: var(--raio);
+}
+
+.cartao-produto h3 {
+  margin-top: var(--espaco-1);
+  margin-bottom: var(--espaco-1);
+}
+
+.cartao-produto .produtor {
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-1);
+}
+
+.cartao-produto .preco {
+  font-weight: bold;
+  margin-bottom: var(--espaco-2);
+}
+
+/* Container query — a partir desta largura o cartão fica em linha, foto à esquerda e texto à direita */
+@container (min-width: 22rem) {
+  .cartao-produto article {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: var(--espaco-2);
+    align-items: start;
+  }
+  .cartao-produto img {
+    grid-row: 1 / span 4;
+  }
+}
+
+/* :has() — quando o botão do cartão recebe o foco, o cartão inteiro ganha um contorno */
+.cartao-produto:has(button:focus-visible) {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 3px;
+}
+
+/* ---- Aviso, figura e busca ---- */
+.aviso {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-marca);
+  border-radius: var(--raio);
+  padding: var(--espaco-2);
+  max-width: 65ch;
+}
+
+.figura-destaque figcaption {
+  color: var(--cor-texto-suave);
+  margin-top: var(--espaco-1);
+}
+
+.busca input[type="search"] {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 0.5em;
+  background-color: var(--cor-superficie);
+}
+
+/* ---- Barra de categorias ---- */
+.barra-categorias {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-1);
+  margin-bottom: var(--espaco-2);
+}
+
+/* ---- Tabela de safra ---- */
+.tabela-safra th,
+.tabela-safra td {
+  padding: var(--espaco-1) var(--espaco-2);
+}
+
+.tabela-safra thead th {
+  background-color: var(--cor-marca);
+  color: var(--cor-sobre-marca);
+}
+
+.tabela-safra tbody td {
+  background-color: var(--cor-superficie);
+}
+
+/* ---- Formulário de cadastro ---- */
+.formulario-cadastro fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-2);
+  margin-bottom: var(--espaco-3);
+}
+
+.formulario-cadastro fieldset fieldset {
+  border: none;
+  padding: 0;
+}
+
+.formulario-cadastro legend {
+  font-weight: bold;
+  color: var(--cor-marca);
+}
+
+.formulario-cadastro input[type="text"],
+.formulario-cadastro input[type="email"],
+.formulario-cadastro input[type="tel"],
+.formulario-cadastro input[type="number"],
+.formulario-cadastro input[type="date"],
+.formulario-cadastro select,
+.formulario-cadastro textarea {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 0.5em;
+  background-color: var(--cor-superficie);
+}
+
+/* ---- Sobre ---- */
+blockquote {
+  color: var(--cor-texto-suave);
+  padding-left: var(--espaco-2);
+}
+
+dt {
+  font-weight: bold;
+}
+
+.pergunta {
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-2);
+  margin-bottom: var(--espaco-1);
+  max-width: 65ch;
+}
+
+}
