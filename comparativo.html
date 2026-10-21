@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroFeira — Comparativo: CSS autoral e Bootstrap</title>
+    <link rel="stylesheet" href="camadas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="componentes.css">
+    <link rel="stylesheet" href="utilitarios.css">
+</head>
+<body>
+
+    <a href="#conteudo" class="pular">Pular para o conteúdo</a>
+
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="safra.html">Safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+
+        <h2>Comparativo: o catálogo autoral e o catálogo em Bootstrap</h2>
+
+        <p>Aluno: Caroline Silva  Matrícula: 2024003057.</p>
+        <p>Repositório: <a href="https://github.com/carolinesilvast/agrofeira-carolinesilvast">https://github.com/carolinesilvast/agrofeira-carolinesilvast</a></p>
+        
+        <p>Endereços do site:</p>
+        <ul>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/">https://carolinesilvast.github.io/agrofeira-carolinesilvast/</a></li>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo.html">https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo.html</a></li>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo-bootstrap.html">https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo-bootstrap.html</a></li>
+        </ul>
+
+        <h3>0. O catálogo em três larguras</h3>
+        <p>Em 360 px, o catálogo em Bootstrap tem 1 coluna de cartões, a lista "Mais pedidos" não aparece e o teste de rolagem deu false.</p>
+        <p>Em 768 px, o catálogo em Bootstrap tem 2 colunas de cartões, a lista "Mais pedidos" não aparece e o teste de rolagem deu false.</p>
+        <p>Em 1200 px, o catálogo em Bootstrap tem 3 colunas de cartões, a lista "Mais pedidos" aparece e o teste de rolagem deu false.</p>
+
+        <figure>
+            <img src="captura-1-360.png" width="1920" height="1080" alt="Catálogo Bootstrap em tela de 360px">
+            <figcaption>Captura 1 — O catálogo em Bootstrap em 360 px, com o modo dispositivo visível.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="captura-2-1200-antes.png" width="1920" height="1080" alt="Catálogo Bootstrap em 1200px, antes da customização">
+            <figcaption>Captura 2 — O catálogo em Bootstrap em 1200 px, sem customização (botão azul).</figcaption>
+        </figure>
+
+        <h3>1. A customização</h3>
+        <table class="tabela-safra">
+            <caption>Variáveis do Bootstrap alteradas</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Variável alterada</th>
+                    <th scope="col">Valor (token)</th>
+                    <th scope="col">Por quê (o que muda na tela)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">--bs-body-bg</th>
+                    <td>var(--cor-fundo)</td>
+                    <td>Muda o fundo da página inteira para a cor do projeto.</td>
+                </tr>
+                <tr>
+                    <th scope="row">--bs-link-color-rgb</th>
+                    <td>var(--cor-marca-rgb)</td>
+                    <td>Muda a cor do link "Início" para a cor da marca.</td>
+                </tr>
+                <tr>
+                    <th scope="row">--bs-btn-bg / --bs-btn-hover-bg</th>
+                    <td>var(--cor-marca) / var(--cor-marca-forte)</td>
+                    <td>Muda o fundo do botão "Adicionar" no estado normal e com o ponteiro em cima.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Por que a --bs-primary sozinha não muda o botão:</strong> Ao inspecionar o botão no F12 (Captura 3), vimos que a regra <code>.btn-primary</code> (do arquivo <code>_buttons.scss</code>) não lê a variável global <code>--bs-primary</code>. O fundo do botão é definido pela variável local <code>--bs-btn-bg</code>, que tem um valor fixo em hexadecimal (<code>#0d6efd</code>). Para mudar a cor do botão, precisamos sobrescrever essa variável local.</p>
+
+        <figure>
+            <img src="captura-3-regra-botao.png" width="1920" height="1080" alt="Painel Styles mostrando a regra .btn-primary e a variável --bs-btn-bg">
+            <figcaption>Captura 3 — A regra .btn-primary no painel Styles, mostrando o --bs-btn-bg fixo.</figcaption>
+        </figure>
+
+        <p><strong>Antes e depois:</strong> O fundo era branco de fábrica e agora é <code>--cor-fundo</code>. O botão era azul e agora é <code>--cor-marca</code>. O link "Início" era azul e agora é <code>--cor-marca</code>. Os cantos eram de 6px e agora são <code>--raio</code>.</p>
+
+        <figure>
+            <img src="captura-4-1200-depois.png" width="1920" height="1080" alt="Catálogo Bootstrap em 1200px, depois da customização">
+            <figcaption>Captura 4 — O catálogo em 1200 px, com a customização aplicada (botão verde).</figcaption>
+        </figure>
+
+        <h3>2. As medições</h3>
+        <p>Medi as duas páginas no endereço público, no Chrome, com a caixa Disable cache e Disable network cache marcadas, na janela com largura de 1920 px e altura de 1080 px.</p>
+
+        <table class="tabela-safra">
+            <caption>Comparação de métricas entre o catálogo autoral e o Bootstrap</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Critério</th>
+                    <th scope="col">Autoral (catalogo.html)</th>
+                    <th scope="col">Bootstrap (catalogo-bootstrap.html)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">CSS transferido</th>
+                    <td>6,9 kB (1,6 kB do Google Fonts)</td>
+                    <td>35,6 kB (33,8 kB + 1,1 kB + 0,7 kB)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Fontes</th>
+                    <td>37,8 kB</td>
+                    <td>0,0 kB</td>
+                </tr>
+                <tr>
+                    <th scope="row">Imagens</th>
+                    <td>368,9 kB</td>
+                    <td>368,9 kB</td>
+                </tr>
+                <tr>
+                    <th scope="row">Documento</th>
+                    <td>1,8 kB</td>
+                    <td>2,0 kB</td>
+                </tr>
+                <tr>
+                    <th scope="row">Total transferido</th>
+                    <td>433 kB</td>
+                    <td>425 kB</td>
+                </tr>
+                <tr>
+                    <th scope="row">LCP (mediana)</th>
+                    <td>0,32 s (0.70, 0.32, 0.57, 0.27, 0.22)</td>
+                    <td>0,55 s (0.55, 0.23, 0.60, 0.58, 0.36)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Linhas de CSS próprio</th>
+                    <td>~250 linhas</td>
+                    <td>~50 linhas (tokens + agrofeira)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Classes no cartão do açaí</th>
+                    <td>4 classes em 4 elementos</td>
+                    <td>13 classes em 9 elementos (sem o selo)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <figure>
+            <img src="captura-5-rede-autoral.png" width="1920" height="1080" alt="Aba Network do catálogo autoral com os bytes transferidos">
+            <figcaption>Captura 5 — A aba Network do catalogo.html com o total de 433 kB.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="captura-6-rede-bootstrap.png" width="1920" height="1080" alt="Aba Network do catálogo em Bootstrap com os bytes transferidos">
+            <figcaption>Captura 6 — A aba Network do catalogo-bootstrap.html com o total de 425 kB.</figcaption>
+        </figure>
+
+        <figure>
+            <img src="captura-7-lcp-autoral.png" width="1920" height="1080" alt="Painel Performance mostrando o LCP do catálogo autoral">
+            <figcaption>Captura 7 — O LCP de uma das cargas do catalogo.html (0,32 s).</figcaption>
+        </figure>
+
+        <figure>
+            <img src="captura-8-lcp-bootstrap.png" width="1920" height="1080" alt="Painel Performance mostrando o LCP do catálogo em Bootstrap">
+            <figcaption>Captura 8 — O LCP de uma das cargas do catalogo-bootstrap.html (0,55 s).</figcaption>
+        </figure>
+
+        <h3>3. A leitura dos números</h3>
+        
+        <p><strong>Os bytes.</strong> O catálogo em Bootstrap baixou 35,6 kB de CSS, contra 6,9 kB do autoral. Isso significa que o Bootstrap trouxe cerca de 5 vezes mais código de estilo. Se desconsiderarmos a folha do Google Fonts no autoral (1,6 kB), a diferença é ainda maior: o Bootstrap é quase 7 vezes mais pesado em CSS. O total transferido da página inteira não é um bom critério para comparar o framework porque as duas páginas baixam as mesmas 7 fotos (cerca de 368 kB), mas apenas o autoral baixa a fonte do Google Fonts (37,8 kB), mascarando o peso real do CSS.</p>
+
+        <p><strong>O LCP.</strong> O LCP do autoral foi de 0,32 s e o do Bootstrap foi de 0,55 s. A variação entre as cinco cargas foi de 0,48 s para o autoral e 0,37 s para o Bootstrap. A diferença entre os dois valores do meio (0,23 s) é menor que a variação natural das cargas, o que significa que não é possível afirmar categoricamente qual é mais rápido apenas com esses dados. O LCP mede o tempo do maior elemento (neste caso, as imagens dos cartões), e o conteúdo visual das duas páginas é idêntico.</p>
+
+        <p><strong>As linhas e as classes.</strong> O CSS autoral tem cerca de 250 linhas e o Bootstrap tem cerca de 50 linhas (excluindo o framework em si). No HTML, o cartão do autoral tem 4 classes, enquanto o do Bootstrap tem 13 classes. O trabalho de mudar uma decisão global no autoral mora no arquivo <code>componentes.css</code>; no Bootstrap, mora na variável <code>--bs-btn-bg</code> no <code>agrofeira-bootstrap.css</code>. O CSS autoral contém regras para outras páginas (como a tabela de safra e o formulário de cadastro) que não são usadas no catálogo.</p>
+
+        <p><strong>O que a medição não mostra.</strong> A medição de bytes não mostra o custo de manutenção do framework no futuro, caso seja necessário atualizar a versão do Bootstrap (quebra de compatibilidade). Também não mostra o tempo de aprendizado da equipe para lidar com as classes utilitárias do framework.</p>
+
+        <p><strong>Controle e trabalho.</strong> O <code>catalogo.html</code> tem o link de pular, o menu, a barra de categorias, a container query do cartão e o <code>:has()</code> do foco. Nenhum desses recursos está no <code>catalogo-bootstrap.html</code>. Implementar o foco do botão via <code>:has()</code> exigiu 4 linhas de CSS na Atividade 4. No Bootstrap, as decisões de layout e de cores são fortemente guiadas pelos pontos de quebra e variáveis pré-definidas do framework, o que limita a customização.</p>
+
+        <h3>4. Conclusão</h3>
+        <p>Usaria o Bootstrap em um projeto rápido de prototipagem ou numa página de administração interna, porque ele entrega componentes prontos e responsivos com pouco esforço, como visto no Bootstrap ter 35,6 kB de CSS contra 6,9 kB do autoral; não usaria na AgroFeira, porque o peso do framework (35,6 kB) é muito maior do que o CSS estritamente necessário para uma vitrine simples, e o controle sobre o design e acessibilidade (como o link de pular e o menu) exige mais trabalho de customização.</p>
+
+    </main>
+
+    <footer class="rodape-site">
+        <p>AgroFeira — feira de produtores da região de Paragominas.</p>
+    </footer>
+
+</body>
+</html>
