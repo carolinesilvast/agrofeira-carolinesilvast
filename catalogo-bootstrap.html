@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AgroFeira — catálogo em Bootstrap</title>
   
-  <!-- Link do Bootstrap 5.3.8 -->
+  <!-- Link do Bootstrap 5.3.8 (CSS) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   
   <!-- Suas folhas de estilo do projeto -->
   <link rel="stylesheet" href="tokens.css">
   <link rel="stylesheet" href="agrofeira-bootstrap.css">
 
-  <!-- JavaScript do Bootstrap (com defer) -->
+  <!-- JavaScript do Bootstrap (com defer e hash correto) -->
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
   
-  <!-- Nova Barra de Navegação -->
+  <!-- Barra de Navegação -->
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4" aria-label="Principal">
       <div class="container">
@@ -46,7 +46,6 @@
           Entregas só às sextas-feiras. Pedidos até quinta, às 18h.
         </div>
 
-        <!-- O título agora é h1, mas com classe h2 -->
         <h1 class="h2">Produtos da semana</h1>
         <p class="lead">O que chegou das colônias de Paragominas nesta semana.</p>
 
@@ -57,18 +56,15 @@
               <img src="acai.jpg" class="card-img-top img-fluid" width="640" height="480" alt="Tigela de açaí batido, com duas colheres de plástico">
               <div class="card-body">
                 <p class="badge text-bg-success">Safra nova</p>
-                <!-- O título do cartão agora é h2, mas mantém a classe h5 -->
                 <h2 class="card-title h5">Açaí médio</h2>
                 <p class="card-text text-body-secondary">Sítio Boa Vista, Colônia do Uraim</p>
                 <p class="card-text fw-bold">R$ 12,00 o litro</p>
                 <button type="button" class="btn btn-primary">Adicionar</button>
-                <!-- Botão que abre o diálogo -->
                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#detalhe-acai">Ver detalhes</button>
               </div>
             </article>
           </li>
 
-          <!-- Demais cartões -->
           <li class="col">
             <article class="card h-100">
               <img src="farinha.jpg" class="card-img-top img-fluid" width="640" height="480" alt="Pote de farinha de mandioca sobre a mesa">
@@ -162,7 +158,7 @@
 
   </div>
 
-  <!-- Diálogo (Modal) do Açaí, fora do container principal -->
+  <!-- Diálogo (Modal) do Açaí -->
   <div class="modal fade" id="detalhe-acai" tabindex="-1" role="dialog" aria-labelledby="detalhe-acai-titulo" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
