@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroFeira — Registro de Decisão</title>
+    <link rel="stylesheet" href="camadas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="tokens.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="componentes.css">
+    <link rel="stylesheet" href="utilitarios.css">
+</head>
+<body>
+
+    <a href="#conteudo" class="pular">Pular para o conteúdo</a>
+
+    <header class="cabecalho-site">
+        <h1>AgroFeira</h1>
+        <nav aria-label="Principal">
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="safra.html">Safra</a></li>
+                <li><a href="cadastro-produtor.html">Cadastro de produtor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+
+        <h2>Aula 6 — o registro de decisão</h2>
+
+        <p>Aluno: Caroline Silva Santos. Matrícula: 2024003057.</p>
+        <p>Repositório: <a href="https://github.com/carolinesilvast/agrofeira-carolinesilvast">https://github.com/carolinesilvast/agrofeira-carolinesilvast</a></p>
+        
+        <p>Endereços do site:</p>
+        <ul>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/">https://carolinesilvast.github.io/agrofeira-carolinesilvast/</a></li>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo-bootstrap.html">https://carolinesilvast.github.io/agrofeira-carolinesilvast/catalogo-bootstrap.html</a></li>
+            <li><a href="https://carolinesilvast.github.io/agrofeira-carolinesilvast/checkout-bootstrap.html">https://carolinesilvast.github.io/agrofeira-carolinesilvast/checkout-bootstrap.html</a></li>
+        </ul>
+
+        <h3>1. As correções de acessibilidade</h3>
+        
+        <table class="tabela-safra">
+            <caption>Registro de correções de acessibilidade no código do Bootstrap</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Componente</th>
+                    <th scope="col">Problema</th>
+                    <th scope="col">Como se detectou</th>
+                    <th scope="col">Correção</th>
+                    <th scope="col">Onde está no código</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Botão do menu</th>
+                    <td>O nome acessível em inglês ("Toggle navigation").</td>
+                    <td>Painel Accessibility no F12 mostrando o Name.</td>
+                    <td>Tradução para "Menu", mantendo a semântica.</td>
+                    <td>Atributo <code>aria-label="Menu"</code> no <code>button.navbar-toggler</code>.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Botão de fechar</th>
+                    <td>O nome acessível em inglês ("Close").</td>
+                    <td>Painel Accessibility no F12 mostrando o Name.</td>
+                    <td>Tradução para "Fechar".</td>
+                    <td>Atributo <code>aria-label="Fechar"</code> no <code>button.btn-close</code>.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Título do diálogo</th>
+                    <td>Uso de <code>h1</code> dentro do modal, quebrando a hierarquia da página.</td>
+                    <td>Recomendação da documentação do Bootstrap.</td>
+                    <td>Troca para <code>h2</code>, mantendo a classe visual.</td>
+                    <td>Tag <code>&lt;h2 class="modal-title h5"&gt;</code>.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ligação das mensagens</th>
+                    <td>O <code>invalid-feedback</code> não estava atrelado ao campo via ARIA.</td>
+                    <td>Apresentação do conceito <code>aria-describedby</code> na apostila.</td>
+                    <td>Vinculação dos IDs das mensagens aos campos.</td>
+                    <td>Atributo <code>aria-describedby</code> nos inputs.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Role do diálogo</th>
+                    <td>O validador W3C não reconhece <code>aria-labelledby</code> sem papel.</td>
+                    <td>Erro apontado pelo validador do W3C.</td>
+                    <td>Adição manual do papel de diálogo.</td>
+                    <td>Atributo <code>role="dialog"</code> no <code>div.modal</code>.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Pendências declaradas:</strong></p>
+        <ul>
+            <li><strong>Foco após o erro:</strong> O foco permanece no botão de envio ("Fazer pedido"). Para movê-lo ao primeiro campo com erro, seria necessário um programa JavaScript customizado.</li>
+            <li><strong>Conteúdo dinâmico no modal:</strong> O modal está fixo para o produto "Açaí". Para que ele mostre as informações de outros produtos, seria necessário um script para injetar o conteúdo dinamicamente.</li>
+        </ul>
+
+        <h3>2. O registro de decisão</h3>
+
+        <h4>Contexto</h4>
+        <p>A AgroFeira precisa definir sua base de estilização para a aplicação em React (encontros 11+). O site autoral tem <strong>6,9 kB</strong> de CSS (e <strong>433 kB</strong> no total), enquanto o Bootstrap tem <strong>35,6 kB</strong> de CSS (e <strong>425 kB</strong> no total). O peso do script do Bootstrap é de <strong>80,5 kB</strong> (25,2 kB transferidos). Sem o script do Bootstrap, a barra de navegação no celular e o diálogo param de funcionar.</p>
+
+        <h4>Opções consideradas</h4>
+        <ul>
+            <li><strong>Folha autoral:</strong> Ganha controle total e leveza (6,9 kB de CSS). Cobra mais tempo de escrita manual de cada regra.</li>
+            <li><strong>Bootstrap:</strong> Ganha componentes prontos e validação (35,6 kB de CSS e 80,5 kB de JS). Cobra um peso maior e a dependência de um script que pode conflitar com o React.</li>
+            <li><strong>Tailwind:</strong> Ganha a velocidade de escrever utilitários direto no HTML (conforme slides). Cobra uma mudança de paradigma e a necessidade de configurar o build, além de não prover o script de comportamento (como o modal do Bootstrap).</li>
+        </ul>
+
+        <h4>Decisão</h4>
+        <p>Usar a <strong>folha autoral</strong> para a base do React, aproveitando os tokens (tokens.css) já criados.</p>
+
+        <h4>Consequências aceitas</h4>
+        <ul>
+            <li>Teremos que escrever os componentes do zero (como o botão e os cards), sem a velocidade de prototipagem do Bootstrap.</li>
+            <li>Não teremos o script pronto de validação de formulário e de modais, exigindo mais linhas de JavaScript (ou o uso de bibliotecas React específicas).</li>
+        </ul>
+
+        <h4>O que me faria mudar de ideia</h4>
+        <p>Se o tempo de desenvolvimento do projeto for muito curto, e o peso do Bootstrap (35,6 kB de CSS + 80,5 kB de JS) não impactar negativamente o LCP da aplicação final em React.</p>
+
+        <h4>Fontes</h4>
+        <ul>
+            <li>Bootstrap. <em>Get started with Bootstrap</em>. Documentação oficial, seção "Quick start".</li>
+            <li>Grant, Keith J. <em>CSS in Depth</em>. Manning, Capítulo 8 (Componentes e arquitetura CSS).</li>
+        </ul>
+
+    </main>
+
+    <footer class="rodape-site">
+        <p>AgroFeira — feira de produtores da região de Paragominas.</p>
+    </footer>
+
+</body>
+</html>
