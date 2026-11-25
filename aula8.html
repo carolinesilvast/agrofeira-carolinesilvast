@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript na AgroFeira</title>
+    <title>JavaScript na AgroFeira — Caroline Silva Santos</title>
     <link rel="stylesheet" href="camadas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +35,15 @@
 
         <h2>JavaScript na AgroFeira</h2>
 
+        <!-- ===== Identificação ===== -->
+        <ul>
+            <li><strong>Nome:</strong> Caroline Silva Santos</li>
+            <li><strong>Matrícula:</strong> 2024003057</li>
+            <li><strong>Repositório:</strong> https://github.com/carolinesilvast/agrofeira-carolinesilvast</li>
+            <li><strong>Site:</strong> https://carolinesilvast.github.io/agrofeira-carolinesilvast/aula8.html</li>
+        </ul>
+
+        <!-- ===== Experimentos da Parte A ===== -->
         <p>
             As três formas de levar JavaScript a uma página são:
             <strong>1) externa</strong>, num arquivo próprio ligado por
@@ -49,6 +58,59 @@
         <script src="js/aula8.js"></script>
         <script>console.log('Forma 2: interna, entre as tags script');</script>
         <button type="button" onclick="alert('Forma 3: em linha, dentro da tag')">Forma 3</button>
+
+        <!-- ===== Meus projetos ===== -->
+        <h2>Meus projetos</h2>
+        <ul>
+            <li>
+                Tabuleiro do tutorial (Parte B) — 
+                <a href="https://codesandbox.io/p/sandbox/tkgyn3">https://codesandbox.io/p/sandbox/tkgyn3</a>
+            </li>
+            <li>
+                AgroFeira em componentes (Parte C) — 
+                <a href="https://codesandbox.io/p/devbox/react-dev-forked-pc6ch8?workspaceId=ws_7xaNSHzkxyot3Lj8C2ohGL">https://codesandbox.io/p/devbox/react-dev-forked-pc6ch8?workspaceId=ws_7xaNSHzkxyot3Lj8C2ohGL</a>
+            </li>
+        </ul>
+
+        <!-- ===== Mensagens que encontrei ===== -->
+        <h2>Mensagens que encontrei</h2>
+        <ul>
+            <li>
+                <strong>Passo 6 (naoExiste):</strong> 
+                <code>Uncaught ReferenceError: naoExiste is not defined at aula8.js:2</code>
+            </li>
+            <li>
+                <strong>Passo 10 (elementos vizinhos):</strong> 
+                <code>Cannot assign to read only property 'message' of object 'SyntaxError: /src/App.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment &lt;&gt;...&lt;/&gt;? (4:4)</code>
+            </li>
+            <li>
+                <strong>Passo 14 (value declarado duas vezes):</strong> 
+                <code>Identifier 'value' has already been declared.</code>
+            </li>
+        </ul>
+
+        <!-- ===== O que eu aprendi ===== -->
+        <h2>O que eu aprendi</h2>
+
+        <h3>1. As três formas</h3>
+        <p>
+            [Se eu tivesse um programa de 200 linhas usado por várias páginas, usaria a forma externa, porque assim o código fica todo num arquivo só e posso reaproveitar em várias páginas, igual a gente faz com o arquivo de CSS. A forma interna deixa o HTML muito grande e a em linha é difícil de dar manutenção. No meu site, o arquivo js/aula8.js mostrou que a forma externa é a mais organizada.]
+        </p>
+
+        <h3>2. Repetição</h3>
+        <p>
+            [No catalogo.html o que se repete são os cartões de produto. O componente equivalente ao Square seria um componente "Produto" e as suas props seriam o nome do produto (e talvez o preço). O que se ganharia é escrever o cartão uma vez só e mudar apenas os dados de cada um, em vez de copiar e colar o HTML várias vezes.]
+        </p>
+
+        <h3>3. Props e estado</h3>
+        <p>
+            [No Produto, o dado que chega por props é o nome do produto (como "Açaí" ou "Farinha d'água") e o que fica no estado é o texto do botão, que começa como "Adicionar". Quando cliquei em dois produtos, os outros não mudaram porque cada componente Produto tem o seu próprio useState independente. Um produto do meu catálogo é a Farinha d'água.]
+        </p>
+
+        <h3>4. A decisão de estilo</h3>
+        <p>
+            [Na Atividade 6 eu escolhi a folha autoral e o que me faria mudar de ideia era a falta de tempo ou se o projeto precisasse de muita complexidade visual. Depois dos Passos 8 a 18, a minha decisão não muda, porque vi no styles.css do CodeSandbox que escrever CSS à mão dá um trabalho danado para pouca coisa (só para colocar borda e cor no botão eu tive que criar duas classes). Se eu tivesse usado Bootstrap, por exemplo, já viria pronto.]
+        </p>
 
     </main>
 
